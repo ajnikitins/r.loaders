@@ -1,0 +1,25 @@
+Package: r.loaders
+Type: Package
+Title: Set of Tools for Loading Data From the ECB Data Portal and SQL servers
+Version: 1.0.0
+Authors@R:
+  person(c("Arturs", "Janis"), "Nikitins", email = "ajnikitins@gmail.com", role = c("aut", "cre"))
+Description: Provides a set of functions to easily get data from the ECB Data Portal and SQL servers
+License: EUPL
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Imports: 
+    DBI,
+    digest,
+    httr2,
+    LBtools,
+    lubridate,
+    magrittr,
+    odbc,
+    oskeyring,
+    RCurl,
+    readsdmx,
+    storr,
+    stringr
