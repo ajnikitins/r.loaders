@@ -14,7 +14,6 @@ Imports:
     DBI,
     digest,
     httr2,
-    LBtools,
     lubridate,
     magrittr,
     odbc,
