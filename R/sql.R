@@ -2,18 +2,24 @@
 #'
 #' @param server SQL server name
 #' @param database Database name (optional)
+#' @param driver ODBC driver name (optional)
 #' @param timezone The Server time zone. Default is 'Europe/Helsinki'. See [odbc::dbConnect()]
 #' @param timezone_out The time zone returned to R. Default is 'Europe/Helsinki'. See [odbc::dbConnect()]
+#' @param ... Other parameters to [odbc::dbConnect()]
 #'
 #' @seealso [close_conn()]
 #' @export
-get_conn <- function(server, database = NULL, timezone = "Europe/Helsinki", timezone_out = "Europe/Helsinki") {
+get_conn <- function(server, database = NULL, driver = "ODBC Driver 18 for SQL Server", timezone = "Europe/Helsinki", timezone_out = "Europe/Helsinki", ...) {
   con <- odbc::dbConnect(
-    drv = odbc::odbc(), timezone = timezone,
+    drv = odbc::odbc(),
+    timezone = timezone,
     timezone_out = timezone_out,
     encoding = ifelse(l10n_info()$`UTF-8`, "UTF-8", "ISO-8859-13"),
-    # TODO: driver = ,
-    server = server, database = database, trusted_connection = "Yes"
+    driver = driver,
+    server = server,
+    database = database,
+    trusted_connection = "Yes",
+    ...
   )
 
   return(con)

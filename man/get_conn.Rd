@@ -7,8 +7,10 @@
 get_conn(
   server,
   database = NULL,
+  driver = "ODBC Driver 18 for SQL Server",
   timezone = "Europe/Helsinki",
-  timezone_out = "Europe/Helsinki"
+  timezone_out = "Europe/Helsinki",
+  ...
 )
 }
 \arguments{
@@ -16,9 +18,13 @@ get_conn(
 
 \item{database}{Database name (optional)}
 
+\item{driver}{ODBC driver name (optional)}
+
 \item{timezone}{The Server time zone. Default is 'Europe/Helsinki'. See \code{\link[odbc:dbConnect-OdbcDriver-method]{odbc::dbConnect()}}}
 
 \item{timezone_out}{The time zone returned to R. Default is 'Europe/Helsinki'. See \code{\link[odbc:dbConnect-OdbcDriver-method]{odbc::dbConnect()}}}
+
+\item{...}{Other parameters to \code{\link[odbc:dbConnect-OdbcDriver-method]{odbc::dbConnect()}}}
 }
 \description{
 Creates an ODBC connection to an SQL Server instance
